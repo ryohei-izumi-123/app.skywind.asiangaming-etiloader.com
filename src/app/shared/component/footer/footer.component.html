@@ -1,0 +1,26 @@
+  <!--footer-->
+  <div class="footer">
+
+    <!--footer__network-->
+    <div class="footer__network">
+      <app-network></app-network>
+    </div>
+    <!--/footer__network-->
+
+    <!--footer__balance-->
+    <div class="footer__balance">
+      <ng-container class="balance">
+        <div class="item">
+          <div class="value">¥ {{(player$|async)?.balance|number}}</div>
+        </div>
+      </ng-container>
+    </div>
+    <!--/footer__balance-->
+
+    <!--footer__clock-->
+    <div class="footer__clock">
+      <app-clock></app-clock>
+    </div>
+    <!--/footer__balance-->
+  </div>
+  <!--/footer-->

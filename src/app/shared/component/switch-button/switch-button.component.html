@@ -1,0 +1,9 @@
+<label class="label">
+  <input class="input" type="checkbox" #input [checked]="checked" (change)="onChange($event)">
+  <div class="input-fake" clickSound>
+    <div class="input-fake__prefix bo-highlight-color">✔</div>
+    <div class="pin bo-sub-btn-bg"></div>
+    <div class="input-fake__suffix">✖</div>
+  </div>
+  <div class="text">{{text}}</div>
+</label>

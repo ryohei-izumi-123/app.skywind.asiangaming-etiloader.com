@@ -1,0 +1,31 @@
+:host {
+  $online_color: rgba(136, 255, 0, 1);
+  $offline_color: rgba(255, 13, 13, 1);
+  $base_icon_size: calc(16px - 1px);
+
+  span.status {
+    margin-bottom: -3px;
+    display: inline-flex;
+    border-radius: 50%;
+    height: $base_icon_size;
+    width: $base_icon_size;
+    background: $offline_color;
+    background: radial-gradient(
+      ellipse at center,
+      #{$offline_color} 0%,
+      rgba(0, 0, 0, 1) 150%
+    );
+    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.4);
+    border: calc(1px / 2) inset;
+    border-color: rgba(255, 255, 255, 0.2);
+
+    &.online {
+      background: $online_color;
+      background: radial-gradient(
+        ellipse at center,
+        #{$online_color} 0%,
+        rgba(0, 0, 0, 1) 150%
+      );
+    }
+  }
+}

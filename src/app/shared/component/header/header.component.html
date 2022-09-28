@@ -1,0 +1,73 @@
+<div class="header">
+
+  <!--logo-->
+  <div class="logo">
+    <img src="./assets/img/icon--logo.png" />
+  </div>
+  <!--logo-->
+
+  <!--user-->
+  <div class="user">
+    <div class="info">
+      <div class="welcome">
+        {{'welcome'|translate}}
+      </div>
+      <div class="name">
+        <div class="name__text">{{(player$|async)?.playerCode}}</div>
+      </div>
+    </div>
+    <div class="balance">
+      <div class="item">
+        <div class="value">¥ {{(player$|async)?.balance|number}}</div>
+        <div class="button" (click)="syncPlayer($event)"></div>
+      </div>
+    </div>
+  </div>
+  <!--/user-->
+
+  <!--banner-->
+  <div class="banner">
+    <div class="banner-wrapper">
+      <ng-container>
+        <div class="wrapper horizontal"></div>
+      </ng-container>
+    </div>
+  </div>
+  <!--/banner-->
+
+  <!--nav-->
+  <div class="nav">
+    <ul class="controls">
+      <li class="controls__item" (click)="openSettingModal($event)" clickSound>
+        <span class="controls__icon bo-hover-color">
+          <svg x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16" enable-background="new 0 0 16 16" preserveAspectRatio="none">
+            <path fill="#fff"
+              d="M15.671 12.779l-7.196-6.168c0.335-0.63 0.525-1.348 0.525-2.111 0-2.485-2.015-4.5-4.5-4.5-0.455 0-0.893 0.068-1.307 0.193l2.6 2.6c0.389 0.389 0.389 1.025 0 1.414l-1.586 1.586c-0.389 0.389-1.025 0.389-1.414 0l-2.6-2.6c-0.125 0.414-0.193 0.852-0.193 1.307 0 2.485 2.015 4.5 4.5 4.5 0.763 0 1.482-0.19 2.111-0.525l6.168 7.196c0.358 0.418 0.969 0.441 1.358 0.052l1.586-1.586c0.389-0.389 0.365-1-0.052-1.358z">
+            </path>
+          </svg>
+        </span>
+      </li>
+      <li class="controls__item" *ngIf="false" (click)="toggleFullscreen($event)" clickSound>
+        <span class="controls__icon bo-hover-color">
+          <svg x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16" enable-background="new 0 0 16 16" preserveAspectRatio="none">
+            <path fill="#fff" d="M16 0h-6.5l2.5 2.5-3 3 1.5 1.5 3-3 2.5 2.5z"></path>
+            <path fill="#fff" d="M16 16v-6.5l-2.5 2.5-3-3-1.5 1.5 3 3-2.5 2.5z"></path>
+            <path fill="#fff" d="M0 16h6.5l-2.5-2.5 3-3-1.5-1.5-3 3-2.5-2.5z"></path>
+            <path fill="#fff" d="M0 0v6.5l2.5-2.5 3 3 1.5-1.5-3-3 2.5-2.5z"></path>
+          </svg>
+        </span>
+      </li>
+      <li class="controls__item" [routerLink]="['/logout']" clickSound>
+        <span class="controls__icon bo-hover-color">
+          <svg x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16" enable-background="new 0 0 16 16"
+            preserveAspectRatio="none">
+            <path fill="#fff"
+              d="M10 2.29v2.124c0.566 0.247 1.086 0.6 1.536 1.050 0.944 0.944 1.464 2.2 1.464 3.536s-0.52 2.591-1.464 3.536c-0.944 0.944-2.2 1.464-3.536 1.464s-2.591-0.52-3.536-1.464c-0.944-0.944-1.464-2.2-1.464-3.536s0.52-2.591 1.464-3.536c0.45-0.45 0.97-0.803 1.536-1.050v-2.124c-2.891 0.861-5 3.539-5 6.71 0 3.866 3.134 7 7 7s7-3.134 7-7c0-3.171-2.109-5.849-5-6.71zM7 0h2v8h-2z">
+            </path>
+          </svg>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <!--/nav-->
+</div>

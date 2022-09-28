@@ -1,0 +1,12 @@
+<div class="range">
+  <div class="title">{{'volume'|translate}}</div>
+  <div class="holder">
+    <div class="control minus" (click)="range = range - step" clickSound>−</div>
+    <div class="bar">
+      <div class="thumb bo-highlight-bg" [ngStyle]="getProgressStyle()">
+        <input type="range" [min]="min" [max]="max" [(ngModel)]="range" [step]="step" #input>
+      </div>
+    </div>
+    <div class="control plus" (click)="range = range + step" clickSound>+</div>
+  </div>
+</div>

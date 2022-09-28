@@ -1,0 +1,11 @@
+<ng-container *ngIf="game">
+  <div class="area" (mouseover)="show($event)" (mouseout)="hide($event)" (mousemove)="move($event)">
+    <div class="tooltip" [ngStyle]="getTooltipStyle()">
+      <div class="name">{{game?.title}}</div>
+      <div class="win" *ngIf="maxWin">
+        <div class="gray">{{'maxWin'|translate}}: </div>
+        {{currencySymbol}} {{maxWin|number}}
+      </div>
+    </div>
+  </div>
+</ng-container>

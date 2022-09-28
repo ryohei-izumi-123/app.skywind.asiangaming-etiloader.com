@@ -1,0 +1,49 @@
+:host {
+  div.details__body {
+    > div.details__wrapper {
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+
+      &::-webkit-scrollbar {
+        width: 14px;
+        background-color: #26272a;
+        border: 1px solid #2d2e30;
+        border-radius: 7px;
+      }
+
+      &::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        background-color: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        border-radius: 7px;
+        background: linear-gradient(
+          to right,
+          #4b4949 0,
+          #555454 51%,
+          #676565 100%
+        );
+        box-shadow: inset 2px 2px 1px #656464;
+        min-height: 60px;
+      }
+
+      > div.details__banner {
+        > img {
+          display: block;
+          max-width: 100%;
+          height: auto;
+        }
+      }
+
+      > div.details__content {
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        width: 100%;
+        height: calc(100% - 100px);
+        min-height: 40px;
+      }
+    }
+  }
+}

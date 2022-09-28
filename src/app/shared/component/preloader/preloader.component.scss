@@ -1,0 +1,126 @@
+$base_size: 64px;
+$base_color: #bc0101;
+
+:host {
+  width: 100vw;
+  height: 100vh;
+  z-index: 1053;
+  position: fixed;
+
+  div.cubes {
+    width: $base_size;
+    height: $base_size;
+    margin: 0 auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    > div.cube {
+      width: 33%;
+      height: 33%;
+      background-color: $base_color;
+      float: left;
+      animation: cubeGridScaleDelayAnimate 1.3s infinite ease-in-out;
+
+      &div.cube1 {
+        animation-delay: 0.2s;
+      }
+
+      &div.cube2 {
+        animation-delay: 0.3s;
+      }
+
+      &div.cube3 {
+        animation-delay: 0.4s;
+      }
+
+      &div.cube4 {
+        animation-delay: 0.1s;
+      }
+
+      &div.cube5 {
+        animation-delay: 0.2s;
+      }
+
+      &div.cube6 {
+        animation-delay: 0.3s;
+      }
+
+      &div.cube7 {
+        animation-delay: 0s;
+      }
+
+      &div.cube8 {
+        animation-delay: 0.1s;
+      }
+
+      &div.cube9 {
+        animation-delay: 0.2s;
+      }
+    }
+  }
+
+  div.spinner-v1 {
+    display: inline-block;
+    width: $base_size;
+    height: $base_size;
+
+    &:after {
+      content: ' ';
+      display: block;
+      width: calc(#{$base_size} * 0.66);
+      height: calc(#{$base_size} * 0.66);
+      margin: 1px;
+      border-radius: 50%;
+      border: 5px solid #{$base_color};
+      border-color: #{$base_color} transparent #{$base_color} transparent;
+      animation: spinner 1.2s linear infinite;
+    }
+  }
+
+  div.spinner-v2 {
+    width: $base_size;
+    height: $base_size;
+    border: 2px solid #f3f3f3;
+    border-top: 3px solid #{$base_color};
+    border-radius: 100%;
+    position: absolute;
+    margin: 0 auto;
+    top: calc(50% - #{$base_size} / 2);
+    left: calc(50% - #{$base_size} / 2);
+    transform: translate(-50%, -50%);
+    animation: spin 1s infinite linear;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes spinner {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes cubeGridScaleDelayAnimate {
+    0%,
+    70%,
+    100% {
+      transform: scale3D(1, 1, 1);
+    }
+
+    35% {
+      transform: scale3D(0, 0, 1);
+    }
+  }
+}

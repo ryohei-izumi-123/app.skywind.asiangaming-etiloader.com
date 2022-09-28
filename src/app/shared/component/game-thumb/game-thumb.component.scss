@@ -1,0 +1,136 @@
+:host {
+  div.thumb {
+    font-size: 1em;
+    transition: box-shadow 0.3s ease-in-out;
+
+    ::ng-deep app-game-limits-selector.limits-selector {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      div.selector {
+        width: 100% !important;
+        height: 100% !important;
+        top: 0 !important;
+        right: 0 !important;
+      }
+    }
+
+    &:hover {
+      box-shadow: 0 0.7em 0.9em rgba(0, 0, 0, 0.97);
+
+      ::ng-deep div.limits__item--max,
+      ::ng-deep div.limits__change {
+        display: block !important;
+      }
+
+      > div.container {
+        box-shadow: 0 0 0 0.3em #fff;
+
+        > div.img-holder {
+          > div.overlay {
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    > div.container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 3px;
+      transition: box-shadow 0.3s ease-in-out;
+      overflow: hidden;
+
+      > div.caption {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        height: 6em;
+        padding: 0 0.9em;
+        background: #000;
+        cursor: pointer;
+
+        > div.name {
+          width: 100%;
+          color: #fff;
+          font-size: 2em;
+          text-transform: uppercase;
+          text-shadow: 0 0 0.1em rgba(255, 255, 255, 0.7);
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+
+      > div.img-holder {
+        position: relative;
+        background-color: #393939;
+        &.img-holder--live {
+          overflow: hidden;
+        }
+
+        > div.scoreboard {
+          position: absolute;
+          left: 0;
+          bottom: -2px;
+          width: calc(100% + 1px);
+          background-color: rgba(0, 0, 0, 0);
+        }
+
+        > div.overlay {
+          position: absolute;
+          left: 0;
+          top: 0;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          height: 100%;
+          width: 100%;
+          opacity: 0;
+          overflow: hidden;
+          transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out;
+
+          > div.press-area {
+            z-index: 1;
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+          }
+
+          > div.icon {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            z-index: 51;
+            width: 10%;
+            height: 16%;
+            display: block;
+            background-size: 95%;
+            background-repeat: no-repeat;
+            background-position: center !important;
+            background-image: url('../../../../assets/img/icon--info.png');
+            cursor: pointer;
+            transition: all 0.15s ease-in-out;
+
+            &.info {
+              margin: 0 2% 2% auto;
+              background-position: center;
+            }
+          }
+        }
+
+        > div.game-limits {
+          margin-left: auto;
+        }
+      }
+    }
+  }
+}

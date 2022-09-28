@@ -1,0 +1,3 @@
+provider: generic
+url: http://api.skywind.asiangaming-etiloader.com/assets/
+updaterCacheDirName: updater-cache

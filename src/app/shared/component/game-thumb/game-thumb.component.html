@@ -1,0 +1,38 @@
+<ng-container *ngIf="game">
+  <div class="thumb">
+    <div class="container">
+      <div class="img-holder" [ngClass]="{'img-holder--live': isLiveDealerGame}">
+        <ng-container *ngIf="isLiveDealerGame; else rngGame">
+          <ng-container *ngIf="isLiveDealerGameOffline; else isLiveDealerGameOnline">
+            <app-game-thumb-offline [game]="game"></app-game-thumb-offline>
+          </ng-container>
+        </ng-container>
+      </div>
+      <div class="caption" [ngStyle]="getCaptionStyle()">
+        <div class="name">{{game?.title}}</div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #isLiveDealerGameOnline>
+    <app-game-live-dealer [game]="game" class="game-live"></app-game-live-dealer>
+    <div class="scoreboard">
+      <app-game-scoreboard [game]="game"></app-game-scoreboard>
+    </div>
+    <div class="overlay">
+      <div class="press-area" playGame [game]="game" clickSound></div>
+    </div>
+    <div class="game-limits">
+      <app-game-thumb-limits [game]="game" [viewMode]="'grid'"></app-game-thumb-limits>
+    </div>
+  </ng-template>
+
+  <ng-template #rngGame>
+    <app-game-thumb-image [game]="game"></app-game-thumb-image>
+    <div class="overlay">
+      <div class="press-area" [game]="game" playGame clickSound></div>
+      <div class="icon info" (click)="showInfo($event)" clickSound></div>
+      <app-game-tooltip [game]="game" playGame clickSound></app-game-tooltip>
+    </div>
+  </ng-template>
+</ng-container>

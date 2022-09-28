@@ -1,0 +1,7 @@
+<div class="thumb bo-list-item-state">
+  <div class="left">
+    <div class="name">{{game?.title}}</div>
+    <div class="info"> {{game?.providerTitle}} </div>
+  </div>
+  <app-game-thumb-limits class="right" [game]="game" *ngIf="isLiveDealerGame" [viewMode]="'list'"></app-game-thumb-limits>
+</div>

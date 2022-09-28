@@ -1,0 +1,62 @@
+:host {
+  div.thumb {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    font-size: 12px;
+    height: 35px;
+    padding: 0 15px;
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+
+    ::ng-deep app-game-limits-selector {
+      div.selector {
+        width: 140px !important;
+        height: 120px !important;
+        top: 24px !important;
+        right: -5px !important;
+      }
+    }
+
+    &:hover {
+      background: linear-gradient(
+        to right,
+        rgba(84, 84, 84, 0.95) 0,
+        rgba(125, 125, 125, 0.95) 15%,
+        rgba(125, 125, 125, 0.95) 27%,
+        rgba(0, 0, 0, 0.95) 50%,
+        rgba(0, 0, 0, 0) 100%
+      );
+    }
+
+    > div.left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      flex: 1;
+      width: calc(100% - 140px);
+
+      > div.name {
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      > div.info {
+        font-size: 10px;
+        color: #ccc;
+      }
+    }
+
+    > div.right {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-grow: 0;
+      flex-shrink: 0;
+      width: 140px;
+    }
+  }
+}

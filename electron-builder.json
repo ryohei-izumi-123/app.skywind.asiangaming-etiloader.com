@@ -1,0 +1,97 @@
+{
+  "asar": true,
+  "productName": "RedWolf",
+  "appId": "com.RedWolfGames.RedWolf",
+  "copyright": "Copyright © 2019 RedWolf Games",
+  "npmRebuild": true,
+  "extraMetadata": {},
+  "publish": [
+    {
+      "provider": "generic",
+      "url": "http://api.skywind.asiangaming-etiloader.com/assets/"
+    }
+  ],
+  "asarUnpack": ["./resources/*"],
+  "directories": {
+    "output": "./release"
+  },
+  "extraResources": ["./resources/*"],
+  "extraFiles": ["./resources/*"],
+  "files": [
+    "**/*",
+    "!**/*.ts",
+    "!*.code-workspace",
+    "!LICENSE.md",
+    "!README.md",
+    "!CHANGELOG.md",
+    "!package.json",
+    "!package-lock.json",
+    "!src/",
+    "!e2e/",
+    "!hooks/",
+    "!release/",
+    "!angular.json",
+    "!_config.yml",
+    "!karma.conf.js",
+    "!tsconfig.json",
+    "!tslint.json",
+    "!uuid.js",
+    "!version.js",
+    "!proxy-config.js"
+  ],
+  "mac": {
+    "icon": "resources/icon.icns",
+    "target": ["dmg", "pkg", "zip"],
+    "category": "public.app-category.games"
+  },
+  "pkg": {
+    "allowAnywhere": true,
+    "installLocation": "/Applications",
+    "allowCurrentUserHome": true,
+    "allowRootDirectory": false
+  },
+  "dmg": {
+    "contents": [
+      {
+        "x": 410,
+        "y": 150,
+        "type": "link",
+        "path": "/Applications"
+      },
+      {
+        "x": 130,
+        "y": 150,
+        "type": "file"
+      }
+    ]
+  },
+  "win": {
+    "icon": "resources/icon.ico",
+    "target": ["nsis", "zip"]
+  },
+  "nsis": {
+    "perMachine": true,
+    "oneClick": false,
+    "allowToChangeInstallationDirectory": false,
+    "deleteAppDataOnUninstall": true,
+    "artifactName": "RedWolfGames_v${version}_${arch}_Installer.${ext}",
+    "installerIcon": "resources/icon.ico",
+    "uninstallerIcon": "resources/icon.ico",
+    "installerHeaderIcon": "resources/icon.ico",
+    "installerHeader": "resources/installerHeader.bmp",
+    "installerSidebar": "resources/installerSidebar.bmp",
+    "uninstallerSidebar": "resources/installerSidebar.bmp",
+    "installerLanguages": "ja_JP",
+    "language": "1041",
+    "guid": "87d3c7f5-5e10-5518-b9f5-6fce3f5a76ad",
+    "displayLanguageSelector": false,
+    "createDesktopShortcut": "always",
+    "createStartMenuShortcut": true,
+    "menuCategory": false,
+    "warningsAsErrors": true,
+    "runAfterFinish": true
+  },
+  "afterPack": "./after-build-hook.js",
+  "afterSign": "./after-sign-hook.js",
+  "compression": "maximum"
+}

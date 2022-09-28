@@ -1,0 +1,6 @@
+<ng-container *ngIf="liveDealerPicture">
+  <div class="img-wrapper">
+    <img alt="" *ngIf="timestamp" [src]="liveDealerPicture + '?timestamp=' + timestamp" class="show">
+    <img alt="" *ngIf="timestamp" [src]="liveDealerPicture + '?timestamp=' + (timestamp - 1000)" class="hide">
+  </div>
+</ng-container>

@@ -1,0 +1,39 @@
+<ng-container>
+  <div class="background bo-login-bg">
+    <div class="blur"></div>
+  </div>
+  <div class="login">
+    <app-preloader *ngIf="isBusy"></app-preloader>
+    <div class="login__wrapper bo-login-dialog-bg">
+      <div class="login__logo bo-logo-login">
+        <img alt="logo" src="./assets/img/icon--logo.png">
+      </div>
+      <form class="form" autocomplete="off" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+        <div class="control">
+          <input type="text" id="playerCode" name="playerCode" class="input input--playerCode"
+            [placeholder]="'playerCode'|translate" formControlName="playerCode" #playerCode autocomplete="off"
+            minlength="4" maxlength="16" required>
+        </div>
+        <div class="control">
+          <input type="password" id="password" name="password" class="input input--password"
+            [placeholder]="'password'|translate" formControlName="password" #password autocomplete="off" minlength="6"
+            maxlength="64" required>
+        </div>
+        <div class="control">
+          <label class="label">
+            <input class="input" type="checkbox" formControlName="remember" #remember value="1">
+            <div class="input-fake" clickSound>
+              <div class="input-fake__prefix bo-highlight-color">✔</div>
+              <div class="pin bo-sub-btn-bg"></div>
+              <div class="input-fake__suffix">✖</div>
+            </div>
+            <span>{{'remember'|translate}}</span>
+          </label>
+        </div>
+        <button class="btn bo-highlight-bg" type="submit" [disabled]="form?.invalid" clickSound>
+          {{'login'|translate}}
+        </button>
+      </form>
+    </div>
+  </div>
+</ng-container>

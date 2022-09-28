@@ -1,0 +1,37 @@
+<ng-container>
+  <div class="details" [ngClass]="getDetailsStyle()">
+    <div class="details__header" >
+      <div class="details__title">{{game?.title}}</div>
+    </div>
+    <div class="details__body">
+      <div class="details__screens">
+        <div class="details__live" *ngIf="isLiveDealerGame; else isRng">
+          <div class="details__live-inner" [ngStyle]="getDetailsBackgroundStyle()"></div>
+        </div>
+      </div>
+      <div class="details__info">
+        <ul class="info" *ngIf="isLiveDealerGame">
+          <li class="info__line">
+            <span class="info__title">{{'limit'|translate}}</span>
+            <span class="info__desc">{{currencySymbol}} {{stakeMin|number}} - {{stakeMax|number}}</span>
+          </li>
+          <li class="info__line">
+            <span class="info__title">{{'dealer'|translate}}</span>
+            <span class="info__desc">{{liveDealerName}}</span>
+          </li>
+          <li class="info__line">
+            <span class="info__title">{{'status'|translate}}</span>
+            <span class="info__desc">{{liveStatus|translate}}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="details__footer">
+      <button class="btn details__play bo-highlight-bg" playGame [disabled]="isDisabled" [game]="game" clickSound></button>
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #isRng>
+  <app-screens-slider [game]="game"></app-screens-slider>
+</ng-template>

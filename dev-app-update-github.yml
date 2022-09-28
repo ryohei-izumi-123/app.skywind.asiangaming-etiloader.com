@@ -1,0 +1,6 @@
+owner: ryohei-evoroots-net
+repo: app.skywind.asiangaming-etiloader.com
+provider: github
+private: true
+token: c0889be5ed1f5b1038afef73e7b311a56fe0fe94
+updaterCacheDirName: updater-cache

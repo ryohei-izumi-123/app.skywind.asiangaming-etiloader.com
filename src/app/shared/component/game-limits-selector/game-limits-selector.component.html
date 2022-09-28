@@ -1,0 +1,39 @@
+<ng-container *ngIf="game">
+  <div class="selector bo-bg-main">
+    <div class="selector__header">
+      <div class="selector__title">{{'changeLimit'|translate}}
+      </div>
+      <div class="selector__close" (click)="close($event)" clickSound>
+        <svg width="16" height="16" viewBox="0 0 16 16">
+          <path fill="#fff"
+            d="M13.957 3.457l-1.414-1.414-4.543 4.543-4.543-4.543-1.414 1.414 4.543 4.543-4.543 4.543 1.414 1.414 4.543-4.543 4.543 4.543 1.414-1.414-4.543-4.543z">
+          </path>
+        </svg>
+      </div>
+    </div>
+    <div class="selector__body">
+      <ng-container *ngFor="let item of limits">
+        <ng-container [ngTemplateOutlet]='selector' [ngTemplateOutletContext]="{ item: item }"></ng-container>
+      </ng-container>
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #selector let-item="item">
+  <div class="selector__item bo-bg-sub" (click)="click($event, item)" clickSound>
+    <ng-container *ngIf="limit === item" [ngTemplateOutlet]='active' [ngTemplateOutletContext]="{ item: item }"></ng-container>
+    <div class="selector__value" clickSound>
+      {{currencySymbol}} {{getStakeMin(item)|number}} - {{getStakeMax(item)|number}}
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #active let-item="item">
+  <div class="selector__checkmark bo-highlight-color">
+    <svg width="16" height="16" viewBox="0 0 16 16">
+      <path fill="#fff"
+        d="M15.36 1c-5.227 3.956-10.239 9.247-10.239 9.247l-3.612-3.247-1.509 1.537c1.485 1.395 4.924 5.081 6.088 6.463 3.275-5.472 6.679-9.552 9.912-13.284l-0.64-0.716z">
+      </path>
+    </svg>
+  </div>
+</ng-template>

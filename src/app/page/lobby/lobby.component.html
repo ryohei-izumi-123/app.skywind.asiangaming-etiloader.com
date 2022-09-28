@@ -1,0 +1,133 @@
+<div class="home">
+  <!--audio-->
+  <app-audio></app-audio>
+  <!--/audio-->
+
+  <!--header-->
+  <app-header></app-header>
+  <!--/header-->
+
+  <!--page-->
+  <div class="page">
+
+    <!--aside-->
+    <div class="aside" *ngIf="false" [ngClass]="getAsideStyle()"></div>
+    <div class="aside">
+
+      <!--aside__trigger-->
+      <div class="aside__trigger">
+        <app-aside-toggle></app-aside-toggle>
+      </div>
+      <!--/aside__trigger-->
+
+      <!--aside__list-->
+      <div class="aside__list">
+        <app-aside-list></app-aside-list>
+      </div>
+      <!--/aside__list-->
+    </div>
+    <!--/aside-->
+
+    <!--overlay__fade-->
+    <div class="overlay__fade" (click)="closeOverlay($event)" [ngClass]="getOverlayStyle()" clickSound></div>
+    <!--/overlay__fade-->
+
+    <!--main-->
+    <div class="main">
+      <div class="holder">
+        <div class="panel">
+          <!--sort-->
+          <div class="sort">
+            <div class="sort__filter">
+              <div class="sort__filter--icon">
+                <svg x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16" enable-background="new 0 0 16 16"
+                  preserveAspectRatio="none">
+                  <path fill="#fff"
+                    d="M7 2v-0.25c0-0.413-0.338-0.75-0.75-0.75h-2.5c-0.413 0-0.75 0.337-0.75 0.75v0.25h-3v2h3v0.25c0 0.412 0.337 0.75 0.75 0.75h2.5c0.412 0 0.75-0.338 0.75-0.75v-0.25h9v-2h-9zM4 4v-2h2v2h-2zM13 6.75c0-0.412-0.338-0.75-0.75-0.75h-2.5c-0.412 0-0.75 0.338-0.75 0.75v0.25h-9v2h9v0.25c0 0.412 0.338 0.75 0.75 0.75h2.5c0.412 0 0.75-0.338 0.75-0.75v-0.25h3v-2h-3v-0.25zM10 9v-2h2v2h-2zM7 11.75c0-0.412-0.338-0.75-0.75-0.75h-2.5c-0.413 0-0.75 0.338-0.75 0.75v0.25h-3v2h3v0.25c0 0.412 0.337 0.75 0.75 0.75h2.5c0.412 0 0.75-0.338 0.75-0.75v-0.25h9v-2h-9v-0.25zM4 14v-2h2v2h-2z">
+                  </path>
+                </svg>
+              </div>
+            </div>
+            <div class="sort__wrapper">
+              <div class="sort__item">
+                <div class="sort__label">{{'view'|translate}}:</div>
+                <div class="sort__views views">
+                  <ng-container *ngFor="let item of viewModes">
+                    <div class="views__item bo-view-toggle-color" [ngClass]="getViewModeStyle(item)" (click)="viewMode = item" clickSound>
+                      <svg x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16" enable-background="new 0 0 16 16" preserveAspectRatio="none" *ngIf="item === 'grid'">
+                        <path fill="#fff" d="M0 0h4v4h-4zM6 0h4v4h-4zM12 0h4v4h-4zM0 6h4v4h-4zM6 6h4v4h-4zM12 6h4v4h-4zM0 12h4v4h-4zM6 12h4v4h-4zM12 12h4v4h-4z"></path>
+                      </svg>
+                      <svg x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16" enable-background="new 0 0 16 16" preserveAspectRatio="none" *ngIf="item === 'list'">
+                        <path fill="#fff" d="M0 0h4v4h-4zM6 1h10v2h-10zM0 6h4v4h-4zM6 7h10v2h-10zM0 12h4v4h-4zM6 13h10v2h-10z"></path>
+                      </svg>
+                    </div>
+                  </ng-container>
+                </div>
+              </div>
+              <div class="sort__item">
+                <div class="sort__label">{{'sortBy'|translate}}:</div>
+                <div class="select">
+                  <div class="holder" (click)="showGameSortMenu = !showGameSortMenu" clickSound>
+                    <div class="icon"></div>
+                    <input class="input bo-highlight-bg" type="text" [placeholder]="'select'|translate" [value]="gameSort|translate" readonly>
+                    <div class="box" *ngIf="showGameSortMenu" [delayClickOutsideInit]="true" [clickOutsideEnabled]="showGameSortMenu" (clickOutside)="showGameSortMenu = false">
+                      <ul class="list">
+                        <ng-container *ngFor="let item of gameSorts">
+                          <li class="item bo-bg-main bo-border-color bo-hover-color" [ngClass]="getGameSortStyle(item)" (click)="gameSort = item" [title]="item|inflector" clickSound>
+                            {{item|translate}}
+                          </li>
+                        </ng-container>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="sort__item sort__item--layouts" [ngClass]="{'hidden': viewMode === 'list'}">
+                <div class="sort__label">{{'layout'|translate}}:</div>
+                <div class="sort__layouts">
+                  <ng-container *ngFor="let item of layoutSizes">
+                    <div class="sort__btn btn btn--round sm" [ngClass]="getLayoutSizeStyle(item)" (click)="layoutSize = item" [title]="item|inflector" clickSound>
+                      {{item|inflector:'initialize'}}
+                    </div>
+                  </ng-container>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--/sort-->
+        </div>
+        <div class="content content--scrollable bo-scroll-styled" #content>
+          <div class="content__block">
+            <div class="games__columns" *ngIf="viewMode === 'list'">
+              <div class="games__columns--list scroll-styled bo-scroll-styled">
+                <ul class="games-vert">
+                  <ng-container *ngFor="let item of games">
+                    <li class="games-vert__item bo-bg-main bo-border-color" [ngClass]="getGameVertItemStyle(item)">
+                      <app-game-thumb-list [game]="item" class="views__item bo-view-toggle-color" (click)="openGameInfo($event, item)" clickSound></app-game-thumb-list>
+                      <div class="games-vert__info" *ngIf="game?.code === item?.code">
+                        <app-game-info [game]="item" [viewMode]="'list'"></app-game-info>
+                      </div>
+                    </li>
+                  </ng-container>
+                </ul>
+              </div>
+            </div>
+            <ul class="game__list" *ngIf="viewMode === 'grid'">
+              <ng-container *ngFor="let item of games">
+                <li class="game__item" [ngClass]="getGameItemStyle(item)">
+                  <app-game-thumb [game]="item" class="views__item bo-view-toggle-color"></app-game-thumb>
+                </li>
+              </ng-container>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/main-->
+  </div>
+  <!--/page-->
+
+  <!--footer-->
+  <app-footer></app-footer>
+  <!--/footer-->
+</div>

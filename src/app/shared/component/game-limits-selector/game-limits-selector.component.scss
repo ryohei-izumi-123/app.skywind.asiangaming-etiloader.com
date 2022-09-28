@@ -1,0 +1,87 @@
+:host {
+  div.selector {
+    position: absolute;
+    background-color: #2e2e2e;
+    font-size: 4px;
+    z-index: 55;
+
+    > div.selector__header {
+      position: relative;
+      width: 100%;
+      height: 35px;
+      height: 20%;
+      display: flex;
+      align-items: center;
+
+      > div.selector__title {
+        flex: 1;
+        text-align: center;
+        padding-right: 1.2em;
+        font-size: 3em;
+        color: #fff;
+      }
+
+      > div.selector__close {
+        position: absolute;
+        right: 2em;
+        top: 50%;
+        width: 3em;
+        height: 3em;
+        margin-top: -1.5em;
+        cursor: pointer;
+        color: #fff;
+
+        > svg {
+          width: 16px;
+          height: 16px;
+          transform: scale(1);
+        }
+      }
+    }
+
+    > div.selector__body {
+      display: flex;
+      flex-direction: column;
+      height: 80%;
+
+      > div.selector__item {
+        position: relative;
+        height: 25%;
+        width: 100%;
+        margin-bottom: 3%;
+        background-color: #1b1b1b;
+        cursor: pointer;
+
+        > div.selector__checkmark {
+          position: absolute;
+          left: 2em;
+          top: 50%;
+          width: 3.6em;
+          height: 3em;
+          margin-top: -1.5em;
+
+          > svg {
+            width: 16px;
+            height: 16px;
+            transform: scale(0.75);
+          }
+        }
+
+        > div.selector__value {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          height: 100%;
+          font-size: 2.8em;
+          font-weight: 600;
+
+          &:hover {
+            background-color: #faaf3b;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}

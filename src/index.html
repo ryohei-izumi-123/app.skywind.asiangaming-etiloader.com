@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <base href="./">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://storage.googleapis.com" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+  <link rel="icon" type="image/x-icon" href="./assets/img/favicon.png">
+  <style>
+    @-webkit-keyframes hidePreloader {
+      0% {
+        z-index: 999;
+      }
+
+      85% {
+        opacity: 1;
+      }
+
+      100% {
+        z-index: -1;
+        opacity: 0;
+      }
+    }
+
+    @keyframes hidePreloader {
+      0% {
+        z-index: 999;
+      }
+
+      85% {
+        opacity: 1;
+      }
+
+      100% {
+        z-index: -1;
+        opacity: 0;
+      }
+    }
+
+    @-webkit-keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @-webkit-keyframes scaleIn {
+      0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+      }
+
+      100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+      }
+    }
+
+    @keyframes scaleIn {
+      0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+      }
+
+      100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+      }
+    }
+
+    @-webkit-keyframes slideLeft {
+      0% {
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+
+      30% {
+        opacity: 0;
+      }
+
+      100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideLeft {
+      0% {
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+
+      30% {
+        opacity: 0;
+      }
+
+      100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @-webkit-keyframes slideRight {
+      0% {
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%);
+        opacity: 0;
+      }
+
+      30% {
+        opacity: 0;
+      }
+
+      100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideRight {
+      0% {
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%);
+        opacity: 0;
+      }
+
+      30% {
+        opacity: 0;
+      }
+
+      100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .app-loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      width: 100vw;
+      height: 100vh;
+      background-color: #000;
+      z-index: 999;
+    }
+
+    .app-loader:after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 200px;
+      background-image: url('./assets/img/icon--logo.png');
+      -webkit-animation-duration: 2s;
+      animation-duration: 2s;
+      -webkit-animation-timing-function: ease;
+      animation-timing-function: ease;
+      -webkit-animation-name: slideRight;
+      animation-name: slideRight;
+      -webkit-animation: hidePreloader 3s ease-in-out forwards;
+      animation: hidePreloader 3s ease-in-out forwards;
+    }
+  </style>
+  <meta name="theme-color" content="#bc0101">
+</head>
+<body oncontextmenu="return false">
+  <app-root class="app-root">
+    <section class="app-loader"></section>
+  </app-root>
+</body>
+
+</html>

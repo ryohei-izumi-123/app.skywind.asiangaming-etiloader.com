@@ -1,0 +1,104 @@
+:host {
+  div.range {
+    text-align: center;
+    margin-bottom: 23px;
+
+    div.title {
+      color: #fff;
+      text-transform: uppercase;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    div.holder {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      div.control {
+        display: flex;
+        align-items: center;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        position: relative;
+        margin: 0 6px;
+        font-size: 26px;
+        font-weight: 700;
+        color: #fff;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+        transition: all 0.3s ease-in-out;
+      }
+
+      div.bar {
+        position: relative;
+        z-index: 1;
+        width: 200px;
+        padding: 1px;
+        border-radius: 10px;
+        background: #181819;
+        box-shadow: 0 1px rgba(255, 255, 255, 0.22);
+        border: 1px solid rgba(0, 0, 0, 0.6);
+
+        .thumb {
+          font-size: 1em;
+          transition: box-shadow 0.3s ease-in-out;
+          position: relative;
+          -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+          width: 0;
+          height: 20px;
+          border-radius: 10px;
+          background: linear-gradient(
+            to bottom,
+            #08355c 0,
+            #1882bf 22%,
+            #1985c3 23%,
+            #22a2de 50%,
+            #1985c3 80%,
+            #08355c 100%
+          );
+
+          input[type='range'] {
+            position: relative;
+            z-index: 2;
+            margin-left: -4px;
+            width: calc(200px + 4px);
+            padding: 0;
+            border-radius: 10px;
+            -webkit-appearance: none !important;
+            background: transparent !important;
+
+            &:focus,
+            &:active {
+              outline: none !important;
+            }
+
+            &::-webkit-slider-runnable-track {
+              -webkit-appearance: none !important;
+              background: transparent !important;
+            }
+
+            &::-webkit-slider-thumb {
+              border: 0 solid transparent !important;
+              -webkit-appearance: none !important;
+              margin-top: -3px;
+              width: 24px;
+              height: 24px;
+              border-radius: 50%;
+              cursor: pointer;
+              transition: left 0.3s ease-in-out;
+              background: linear-gradient(
+                to bottom,
+                #bfbfbf 0%,
+                #b0b0b0 22%,
+                #474747 100%
+              ) !important;
+              box-shadow: none !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}

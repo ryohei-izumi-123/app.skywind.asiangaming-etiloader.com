@@ -1,0 +1,30 @@
+:host {
+  div.clock {
+    display: flex;
+
+    > span.icon {
+      width: 16px;
+      height: 16px;
+      background: url('../../../../assets/img/icon--clock.png') no-repeat;
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+    > span.time {
+      margin-bottom: -1px;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      -webkit-mask-image: -webkit-linear-gradient(
+        top,
+        #fff 50%,
+        rgba(0, 0, 0, 0.45)
+      );
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+
+      > span {
+        color: #fff;
+      }
+    }
+  }
+}

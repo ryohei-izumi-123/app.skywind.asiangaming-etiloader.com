@@ -1,0 +1,15 @@
+<ng-container>
+  <div class="swiper-container" [swiper]="config">
+    <div class="swiper-wrapper">
+      <ng-container *ngFor="let item of images">
+        <div class="swiper-slide">
+          <img [alt]="item" [src]="item">
+        </div>
+      </ng-container>
+    </div>
+    <div class="swiper-pagination" [ngClass]="{'hidden': images?.length === 0}"></div>
+    <div class="swiper-scrollbar" [ngClass]="{'hidden': images?.length === 0}"></div>
+    <div class="swiper-button-prev" [ngClass]="{'hidden': images?.length === 0}"></div>
+    <div class="swiper-button-next" [ngClass]="{'hidden': images?.length === 0}"></div>
+  </div>
+</ng-container>

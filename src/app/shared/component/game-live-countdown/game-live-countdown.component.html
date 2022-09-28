@@ -1,0 +1,8 @@
+<ng-container *ngIf="game">
+  <div class="live-timer" *ngIf="startAt">
+    <div class="live-timer__text">{{'untilTableOpen'|translate}}</div>
+    <div class="live-timer__value">
+      <span>{{time|moment:'HH:mm:ss'}}</span>
+    </div>
+  </div>
+</ng-container>

@@ -1,0 +1,14 @@
+:host {
+  div.dealer {
+    position: absolute;
+    top: 0.7em;
+    right: 0.5em;
+    margin-left: auto;
+    font-size: 2em;
+    font-weight: 700;
+    color: #ffff;
+
+    > span.wrapper {
+    }
+  }
+}

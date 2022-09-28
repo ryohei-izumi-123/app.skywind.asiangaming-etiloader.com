@@ -1,0 +1,37 @@
+<ng-container *ngIf="game">
+  <ng-container *ngIf="viewMode === 'list'; else isGrid">
+    <div class="limits-list" [delayClickOutsideInit]="showSelector" [clickOutsideEnabled]="showSelector"
+      (clickOutside)="close($event)">
+      <div class="limits-list__values">
+        <div class="limits-list__item limits-list__item--currency">{{currencySymbol}}</div>
+        <div class="limits-list__item limits-list__item--min"> {{stakeMin|number}}</div>
+        <div class="limits-list__item limits-list__item--max"> - {{stakeMax|number}}</div>
+      </div>
+      <div class="limits-list__selector">
+        <app-game-limits-selector *ngIf="showSelector" [game]="game" (closeEvent$)="close($event)"></app-game-limits-selector>
+      </div>
+      <div class="limits-list__change" *ngIf="!hasSameGameLimits" (click)="open($event)" clickSound><span>{{'change'|translate}}</span></div>
+    </div>
+  </ng-container>
+</ng-container>
+
+<ng-template #isGrid>
+  <div class="limits">
+    <div class="limits__values">
+      <div class="limits__item limits__item--currency">{{currencySymbol}}</div>
+      <div class="limits__item limits__item--min"> {{stakeMin|number}}</div>
+      <div class="limits__item limits__item--max"> - {{stakeMax|number}}</div>
+    </div>
+    <div class="limits__change" *ngIf="!hasSameGameLimits" (click)="open($event)" clickSound>
+      <svg viewBox="0 0 300 100">
+        <rect height="100" rx="30" width="300" x="0" y="0"></rect>
+        <text dy="0.35em" text-anchor="middle" x="50%" y="50%">
+          {{'change'|translate}}
+        </text>
+      </svg>
+    </div>
+  </div>
+  <ng-container *ngIf="showSelector">
+    <app-game-limits-selector class="limits-selector" [game]="game" (closeEvent$)="close($event)"></app-game-limits-selector>
+  </ng-container>
+</ng-template>

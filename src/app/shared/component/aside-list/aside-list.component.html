@@ -1,0 +1,25 @@
+<div class="menu-bg">
+  <div class="menu-holder">
+    <div class="menu-main-holder">
+      <div class="menu-arrow top"></div>
+      <div class="menu-scroller">
+        <ul class="menu">
+        <ng-container *ngFor="let item of gameCategories">
+            <li class="item" (click)="gameCategory = item" [title]="item?.title|inflector" clickSound>
+              <a class="link" [ngClass]="getItemStyle(item)">{{'category.' + (item?.title)|translate}}</a>
+            </li>
+          </ng-container>
+        </ul>
+      </div>
+      <div class="menu-arrow bottom"></div>
+    </div>
+  </div>
+  <div class="search-games-hidden">
+    <div class="menu-search">
+      <div class="holder">
+        <div class="icon"></div>
+        <input type="search" class="input" [placeholder]="'search'|translate" [(ngModel)]="gameFilter" (ngModelChange)="onChange($event)" #input>
+      </div>
+    </div>
+  </div>
+</div>
